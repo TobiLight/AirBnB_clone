@@ -26,9 +26,27 @@ class HBNBCommand(cmd.Cmd):
         """
         Intercepts commands to test for class.syntax()
         """
-        arguments = shlex.split(line)
-        match = re.search()
-        print(arguments)
+        methods = {
+            "all": self.do_all,
+            "show": self.do_show,
+            "update": self.do_update,
+            "destroy": self.do_destroy,
+            "count": self.do_count
+            }
+        match = re.search(r"\.", line)
+        if match is not None:
+            argl = [line[:match.span()[0]], line[match.span()[1]:]]
+            match = re.search(r"\((.*?)\)", argl[1])
+            if match is not None:
+                command = [argl[1][:match.span()[0]], match.group()[1:-1]]
+                # print(command[1], argl[0])
+                if command[0] in methods.keys():
+                    call = "{} {}".format(argl[0], command[1])
+                    print(argl[0], command[1])
+                    return methods[command[0]](call)
+        print("*** Unknown syntax: {}".format(line))
+        return False
+
 
     def emptyline(self):
         """Do nothing on empty line"""
@@ -143,16 +161,19 @@ class HBNBCommand(cmd.Cmd):
         print()
         return True
 
-    def do_quit(self, arg):
+    def do_quit(self, line):
         """Quit command to exit the program"""
         return True
 
     def do_count(self, line):
-        match = re.search(r"\.", line)
-        arg = [line[:match.span()[0]], line[match.span()[1]:]]
-        if match is not None:
-            command = [arg[1][:match.span()[0]], match.group()[1:-1]]
-        print(command)
+        arguments = line.split()
+        data = models.storage.all().values()
+        count = 0
+        for obj in data:
+            if arguments[0] == obj.__class__.__name__:
+                count += 1
+        print(count)
+
 
 
 def retreive_obj(storage, line, __classes):
