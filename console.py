@@ -62,24 +62,31 @@ class HBNBCommand(cmd.Cmd):
     #                 else:
     #                     print("** instance id missing **")
     #             elif "update" in method.group():
-    #                 arg = re.search(r'\(\s*"([^"]*)"\s*,\s*({.*})\s*\)', method_name)
+    #                 arg = re.search(r'\(\s*"([^"]*)"\s*,\s*({.*})\s*\)',\
+    # method_name)
     #                 id = arg.group(1)
     #                 dict_rep = arg.group(2)
     #                 print(id, dict_rep)
     #                 if id is not None and dict_rep is not None:
     #                     eval('"{}"'.format('**dict_rep'))
-    #                     self.do_update(eval('{} "{}" "{}"'.format(classname, id, '**dict_rep')))
-    #                     # methods[method.group()](eval("{} '{}' {}".format(classname, id, '**dict_rep')))
+    #                     self.do_update(eval('{} "{}" "{}"'.format(classname,\
+    # id, '**dict_rep')))
+    #                     # methods[method.group()](eval("{} '{}' {}"\
+    # .format(classname, id, '**dict_rep')))
     #                 # if len(arg.group()) == 0:
     #                 #     methods[method.group()](classname)
     #                 # elif len(arg.group()) == 1:
-    #                 #     methods[method.group()]("{} {}".format(classname, arg[0]))
+    #                 #     methods[method.group()]("{} {}".format(classname,\
+        # arg[0]))
     #                 # elif len(arg.group()) == 2:
     #                 #     print(arg)
-    #                 #     print(eval('{} {} "{}"'.format(classname, arg.group(0), '**arg.group(1)')))
-    #                     # methods[method.group()](eval('{} "{}"'.format(classname, '**arg[0]')))
+    #                 #     print(eval('{} {} "{}"'.format(classname,\
+        # arg.group(0), '**arg.group(1)')))
+    #                     # methods[method.group()](eval('{} "{}"'\
+        # .format(classname, '**arg[0]')))
     #                 # else:
-    #                 #     call = '{} {} {} "{}"'.format(classname, arg[0], arg[1], eval(arg[2]))
+    #                 #     call = '{} {} {} "{}"'.format(classname,\
+        # arg[0], arg[1], eval(arg[2]))
     #                 #     methods[method.group()](call)
     #             else:
     #                 print("*** Unknown syntax: {}".format(line))
@@ -126,7 +133,7 @@ class HBNBCommand(cmd.Cmd):
 
             pline = pline[pline.find('(') + 1:pline.find(')')]
             if pline:
-                pline = pline.partition(', ') 
+                pline = pline.partition(', ')
 
                 _id = pline[0].replace('\"', '')
 
@@ -232,7 +239,7 @@ class HBNBCommand(cmd.Cmd):
         args = line.partition(" ")
         if args[0]:
             classname = args[0]
-        else: 
+        else:
             print("** class name missing **")
             return
         if classname not in HBNBCommand.classes:
