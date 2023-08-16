@@ -5,7 +5,7 @@
 Defines a base model class BaseModel
 """
 import uuid
-import datetime
+from datetime import datetime
 import models
 
 
