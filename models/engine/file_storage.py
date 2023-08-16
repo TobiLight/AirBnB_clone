@@ -52,10 +52,16 @@ class FileStorage:
         """
         Deserializes the JSON file to __objects
         """
+        classes = {
+                    'BaseModel': BaseModel, 'User': User, 'Place': Place,
+                    'State': State, 'City': City, 'Amenity': Amenity,
+                    'Review': Review
+                  }
         try:
-            with open(self.__file_path, 'r', encoding="utf-8") as JSON_File:
-                json_file = json.load(JSON_File)
-                for obj in json_file.values():
-                    self.new(eval("{}({})".format(obj['__class__'], '**obj')))
+            temp = {}
+            with open(FileStorage.__file_path, 'r') as f:
+                temp = json.load(f)
+                for key, val in temp.items():
+                        self.all()[key] = classes[val['__class__']](**val)
         except FileNotFoundError:
             pass
