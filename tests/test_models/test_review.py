@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-# File: test_review.py
 """Unittest module for the Review Class."""
 
 import unittest

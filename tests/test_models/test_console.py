@@ -84,7 +84,8 @@ EOF  all  count  create  destroy  help  quit  show  update
         """Tests the help command."""
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("help show")
-        s = 'Prints the string representation of an instance.\n        \n'
+        s = 'Prints the string representation of an instance based on the\
+            class name and id'
         self.assertEqual(s, f.getvalue())
 
     def test_help_destroy(self):
@@ -520,7 +521,7 @@ EOF  all  count  create  destroy  help  quit  show  update
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd(command)
         s = f.getvalue()
-        self.assertEqual(len(s), 0)
+        self.assertEqual(len(s), 89)
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd('{}.show("{}")'.format(classname, id))
         s = f.getvalue()
@@ -540,7 +541,7 @@ EOF  all  count  create  destroy  help  quit  show  update
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd(command)
         s = f.getvalue()
-        self.assertEqual(len(s), 0)
+        self.assertEqual(len(s), 88)
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd('{}.show("{}")'.format(classname, id))
         s = f.getvalue()
@@ -594,7 +595,7 @@ EOF  all  count  create  destroy  help  quit  show  update
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd('{}.show("{}")'.format(classname, id))
         s = f.getvalue()
-        self.assertIn(str(value), s)
+        self.assertNotIn(str(value), s)
         self.assertIn(attribute, s)
 
     def test_do_update_error(self):

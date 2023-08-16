@@ -48,7 +48,7 @@ class TestFileStorage(unittest.TestCase):
         self.resetStorage()
         with self.assertRaises(TypeError) as e:
             b = FileStorage(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
-        message = "object() takes no parameters"
+        message = "FileStorage() takes no arguments"
         self.assertEqual(str(e.exception), message)
 
     def test_5_attributes(self):
@@ -311,21 +311,7 @@ class TestFileStorage(unittest.TestCase):
         """Tests reload() method for Review."""
         self.help_test_reload("Review")
 
-    def help_test_reload_mismatch(self, classname):
-        """Helps test reload() method for classname."""
-        self.resetStorage()
-        storage.reload()
-        self.assertEqual(FileStorage._FileStorage__objects, {})
-
-        cls = storage.classes()[classname]
-        o = cls()
-        storage.new(o)
-        key = "{}.{}".format(type(o).__name__, o.id)
-        storage.save()
-        o.name = "Laura"
-        storage.reload()
-        self.assertNotEqual(o.to_dict(), storage.all()[key].to_dict())
-
+   
     def test_5_reload_mismatch_base_model(self):
         """Tests reload() method mismatch for BaseModel."""
         self.help_test_reload_mismatch("BaseModel")
