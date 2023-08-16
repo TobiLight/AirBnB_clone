@@ -77,16 +77,16 @@ class HBNBCommand(cmd.Cmd):
     #                 #     methods[method.group()](classname)
     #                 # elif len(arg.group()) == 1:
     #                 #     methods[method.group()]("{} {}".format(classname,\
-        # arg[0]))
+    # arg[0]))
     #                 # elif len(arg.group()) == 2:
     #                 #     print(arg)
     #                 #     print(eval('{} {} "{}"'.format(classname,\
-        # arg.group(0), '**arg.group(1)')))
+    # arg.group(0), '**arg.group(1)')))
     #                     # methods[method.group()](eval('{} "{}"'\
-        # .format(classname, '**arg[0]')))
+    # .format(classname, '**arg[0]')))
     #                 # else:
     #                 #     call = '{} {} {} "{}"'.format(classname,\
-        # arg[0], arg[1], eval(arg[2]))
+    # arg[0], arg[1], eval(arg[2]))
     #                 #     methods[method.group()](call)
     #             else:
     #                 print("*** Unknown syntax: {}".format(line))
