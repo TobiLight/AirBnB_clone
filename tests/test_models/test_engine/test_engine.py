@@ -3,10 +3,7 @@
 """Unittest module for the FileStorage class."""
 
 import unittest
-import time
-import re
 from models.base_model import BaseModel
-from datetime import datetime
 from models.engine.file_storage import FileStorage
 from models import storage
 import json
@@ -311,7 +308,6 @@ class TestFileStorage(unittest.TestCase):
         """Tests reload() method for Review."""
         self.help_test_reload("Review")
 
-   
     def test_5_reload_mismatch_base_model(self):
         """Tests reload() method mismatch for BaseModel."""
         self.help_test_reload_mismatch("BaseModel")

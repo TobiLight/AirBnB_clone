@@ -11,10 +11,9 @@ from models.base_model import BaseModel
 
 
 class TestState(unittest.TestCase):
-
     """Test Cases for the State class."""
 
-   def __init__(self, *args, **kwargs):
+    def __init__(self, *args, **kwargs):
         """ """
         super().__init__(*args, **kwargs)
         self.name = "State"
@@ -24,6 +23,7 @@ class TestState(unittest.TestCase):
         """ """
         new = self.value()
         self.assertEqual(type(new.name), str)
+
 
 if __name__ == "__main__":
     unittest.main()
