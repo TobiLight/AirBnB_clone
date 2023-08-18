@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 # File: base_model.py
-# Auhtors: Oluwatobiloba Light &&
+# Auhtor: Oluwatobiloba Light
 """
 Defines a base model class BaseModel
 """
