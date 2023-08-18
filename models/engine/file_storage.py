@@ -9,7 +9,8 @@ import json
 
 class FileStorage:
     """
-    Serializes instances to a JSON file and deserializes JSON file to instances
+    Serializes instances to a JSON file and deserializes JSON file to
+    instances
     """
     __file_path = "file.json"
     __objects = {}
@@ -32,7 +33,8 @@ class FileStorage:
         """
         Serializes __objects to the JSON file
         """
-        with open(FileStorage.__file_path, 'w', encoding="utf-8") as JSON_File:
+        with open(FileStorage.__file_path, 'w', encoding="utf-8") as\
+            JSON_File:
             data = {k: v.to_dict() for k, v in FileStorage.__objects.items()}
             json.dump(data, JSON_File)
 
