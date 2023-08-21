@@ -15,3 +15,7 @@ body {
     max-width: 1000px;
     margin: 30px auto;
 }
+
+ul li {
+  list-style: none;
+}
