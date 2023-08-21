@@ -1,0 +1,28 @@
+/*
+    Filter popover & results
+    File: 7-places.css
+    Author: Oluwatobiloba Light
+ */
+
+section.places {
+  text-align: center;
+}
+
+section.places h1 {
+  font-size: 30px;
+  text-align: left;
+}
+
+section.places article {
+  width: 390px;
+  padding: 20px;
+  margin: 20px;
+  border: 1px solid #ff5a5f;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+section.places article h2 {
+  font-size: 30px;
+  text-align: center;
+}
