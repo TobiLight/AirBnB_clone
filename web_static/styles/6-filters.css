@@ -97,3 +97,20 @@ ul.popover li:last-child {
 .locations:hover .popover, .amenities:hover .popover {
   display: block;
 }
+
+
+@media (max-width: 768px) {
+  .filters {
+    display: flex;
+    flex-direction: column;
+    height: -webkit-fill-available;
+    gap: 5px;
+    width: 98%;
+    margin: auto;
+  }
+
+  .filters button {
+    width: 90%;
+    margin: 20px auto;
+  }  
+}

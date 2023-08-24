@@ -14,10 +14,10 @@ section.places h1 {
 }
 
 section.places div.places-results {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 
 section.places div article {
@@ -54,10 +54,9 @@ div.information {
   height: 80px;
   border-top: 1px solid #dddddd;
   border-bottom: 1px solid #dddddd;
-  vertical-align: middle;
-  display: inline-block;
-  width: inherit;
-  margin-top: -40px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 div.max_guest,
@@ -139,4 +138,45 @@ article div.amenities ul li {
 
 .review p {
   margin-top: 3px;
+}
+
+@media (max-width: 768px) {
+  .locations, .amenities {
+    width: 100%;
+  }
+
+  .locations {
+    border-right: 0;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #dddddd;
+  }
+
+  .amenities {
+    border-bottom: 1px solid #dddddd;
+    padding-bottom: 5px;
+  }
+
+  section.places div.places-results {
+    gap: 30px;
+  }
+
+  div.information {
+    margin-top: 0 !important;
+    width: 100% !important;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  section.places div article {
+    margin: 0 !important;
+    width: 90% !important;
+  }
+
+  article div.amenities,
+  div.reviews {
+    margin-top: 40px;
+    text-align: left;
+    display: inline-block;
+    width: 100%;
+  }
 }
